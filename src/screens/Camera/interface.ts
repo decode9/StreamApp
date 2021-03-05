@@ -1,8 +1,9 @@
 export interface StateProps {
-  intermittence: any
-  auth:any
+  theme?: any
+  intermittence?: any
+  picker?: any
 }
 
 export interface Props extends StateProps {
-  action: any
+  action?: any
 }
