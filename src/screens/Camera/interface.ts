@@ -1,7 +1,5 @@
 export interface StateProps {
-  theme?: any
-  intermittence?: any
-  picker?: any
+  auth?: any
 }
 
 export interface Props extends StateProps {

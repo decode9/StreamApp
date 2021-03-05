@@ -2,28 +2,29 @@ import React, { memo, FC } from 'react';
 import styles from './styles';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Root, Text, View } from 'native-base';
+import { Root, View } from 'native-base';
 import { StatusBar, ActivityIndicator } from 'react-native';
 import { StateProps, Props } from './interface';
-//import Camera from '../Camera';
-//import LogIn from '../LogIn';
+import Camera from '../Camera';
+import LogIn from '../LogIn';
 
-const Main: FC<Props> = (() => {
+const Main: FC<Props> = memo(({ intermittence, auth }) => {
 
-  //const { loader } = intermittence;
+  const { loader } = intermittence;
 
   return (
     <>
       <StatusBar barStyle={'default'} translucent={true} backgroundColor={'transparent'} />
-      <Text>Hola</Text>
-      {/* auth.init ? <Camera /> : <LogIn /> */}
-      {
-        /* loader ? (
-          <View style={styles.loader}>
-            <ActivityIndicator size='large' color={'gray'} />
-          </View>
-        ) : null */
-      }
+      <Root>
+        {auth.init ? <Camera /> : <LogIn/>}
+        {
+          loader ? (
+            <View style={styles.loader}>
+              <ActivityIndicator size='large' color={'gray'} />
+            </View>
+          ) : null
+        }
+      </Root>
     </>
   );
 });
@@ -38,6 +39,4 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default Main;
-
-//export default connect(mapStateProps, mapDispatchToProps)(Main);
+export default connect(mapStateProps, mapDispatchToProps)(Main);

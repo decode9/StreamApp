@@ -1,5 +1,6 @@
-import { actionObject } from './common';
+import { actionObject, requestCameraPermission } from './common';
 
 export {
   actionObject,
+  requestCameraPermission
 };

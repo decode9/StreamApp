@@ -2,9 +2,9 @@ import { LOGIN, LOGOUT } from './action-types';
 import { DispatchProps } from '../../interfaces';
 
 const initialState = {
-  cameraName: 'StreamApp',
-  sideCamera: 'back',
-  serverEmition: 'localhost',
+  cameraName: '',
+  sideCamera: 'front',
+  serverEmition: '',
   init: false
 };
 

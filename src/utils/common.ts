@@ -4,10 +4,13 @@ export const actionObject = (type: any, payload: any = null) => {
   return { type, payload }
 }
 
-const requestCameraPermission = async () => {
+export const requestCameraPermission = async () => {
   try {
-    await PermissionsAndroid.requestMultiple([PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.RECORD_AUDIO]);
+    const permission = await PermissionsAndroid.requestMultiple([PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.RECORD_AUDIO]);
+    if (permission['android.permission.CAMERA'] == 'granted' && permission['android.permission.RECORD_AUDIO'] == 'granted') return true
+    return false
   } catch (err) {
     console.warn(err);
+    return false
   }
 };
