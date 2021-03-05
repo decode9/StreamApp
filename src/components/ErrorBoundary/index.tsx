@@ -10,7 +10,7 @@ type ErrorState = {
 class ErrorBoundary extends Component<Props, ErrorState> {
 
   state: ErrorState = { hasError: false }
-  
+
   constructor(props: Props) {
     super(props)
     this.state = { hasError: false }
@@ -25,12 +25,12 @@ class ErrorBoundary extends Component<Props, ErrorState> {
   }
 
   render() {
-    return this.state.hasError ? 
+    return this.state.hasError ?
       <View style={styles.container}>
         <Text>Something went wrong</Text>
       </View>
-     :
-     this.props.children
+      :
+      this.props.children
   }
 }
 
