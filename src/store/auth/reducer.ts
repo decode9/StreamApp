@@ -5,6 +5,7 @@ const initialState = {
   cameraName: '',
   sideCamera: 'front',
   serverEmition: '',
+  onlyAudio: false,
   init: false
 };
 

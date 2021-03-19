@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   main: {
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#131c21',
     width: '100%',
@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
   inputBox: {
     width: '80%',
     alignItems: 'center',
+  },
+  audioBox: {
+    flexDirection: 'row'
   },
   input: {
     borderRadius: 20,
@@ -45,7 +48,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 150,
-    height: 150
+    height: 150,
+    marginTop: 50
   },
   button: {
     width: 150,
@@ -53,7 +57,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     borderWidth: 2,
-    marginVertical: 10
+    marginVertical: 10,
+    marginBottom: 50
+  },
+  checkBox: {
+    marginRight: 20
+  },
+  Text: {
+    textAlign: 'center',
+    fontSize: 15,
+    color: 'white',
   },
   buttonText: {
     textAlign: 'center',

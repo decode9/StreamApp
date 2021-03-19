@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "upgrade-react": "react-native upgrade"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "react-native-community/async-storage",
@@ -16,8 +17,8 @@
     "@types/react-native-vector-icons": "^6.4.6",
     "@types/react-redux": "^7.1.16",
     "native-base": "^2.15.2",
-    "react": "16.13.1",
-    "react-native": "0.63.2",
+    "react": "17.0.1",
+    "react-native": "0.64.0",
     "react-native-nodemediaclient": "^0.2.14",
     "react-native-safe-area-context": "^3.1.8",
     "react-native-vector-icons": "^8.1.0",

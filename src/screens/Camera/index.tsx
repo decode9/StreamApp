@@ -28,7 +28,7 @@ const Camera: FC<Props> = memo(({ auth, action }) => {
   return (
     <>
       <StatusBar barStyle={'light-content'} translucent={true} backgroundColor={'transparent'} />
-      <View style={styles.main}>
+      <View style={(auth.onlyAudio) ? styles.mainHide : styles.main}>
         <NodeCameraView
           style={styles.camera}
           ref={(vb: any) => { setVb(vb) }}
@@ -37,22 +37,37 @@ const Camera: FC<Props> = memo(({ auth, action }) => {
           audio={{ bitrate: 32000, profile: 1, samplerate: 44100 }}
           video={{ preset: 12, bitrate: 400000, profile: 1, fps: 30, videoFrontMirror: false }}
           autopreview={true}
+          dynamicRateEnable={true}
         />
       </View>
-      <SafeAreaView style={styles.mainUpper}>
-        <Text style={styles.textCamera}>{auth.cameraName}</Text>
-        <View style={{ alignSelf: 'flex-end' }}>
-          <Button style={styles.iconBox} onPress={() => view.switchCamera()} >
-            <Icon style={styles.icon} name={'camera-front'} />
-          </Button>
-          <Button style={styles.iconBox} onPress={setStream} >
-            <Icon style={styles.icon} name={(publish) ? 'visibility-off' : 'visibility'} />
-          </Button>
-          <Button style={styles.iconBox} onPress={action.logOut} >
-            <Icon style={styles.icon} name={'arrow-back'} />
-          </Button>
-        </View>
-      </SafeAreaView>
+      {(auth.onlyAudio) ?
+        <SafeAreaView style={styles.mainAudio}>
+          <Text style={styles.textAudio}>{auth.cameraName}</Text>
+          <View style={styles.buttonBox}>
+            <Button style={styles.iconBoxAudio} onPress={setStream} >
+              <Icon style={styles.iconAudio} name={(publish) ? 'mic' : 'mic-off'} />
+            </Button>
+            <Button style={styles.iconBoxAudio} onPress={action.logOut} >
+              <Icon style={styles.iconAudio} name={'arrow-back'} />
+            </Button>
+          </View>
+        </SafeAreaView> :
+        <SafeAreaView style={styles.mainUpper}>
+          <Text style={styles.textCamera}>{auth.cameraName}</Text>
+          <View style={{ alignSelf: 'flex-end' }}>
+            <Button style={styles.iconBox} onPress={() => view.switchCamera()} >
+              <Icon style={styles.icon} name={'camera-front'} />
+            </Button>
+            <Button style={styles.iconBox} onPress={setStream} >
+              <Icon style={styles.icon} name={(publish) ? 'visibility-off' : 'visibility'} />
+            </Button>
+            <Button style={styles.iconBox} onPress={action.logOut} >
+              <Icon style={styles.icon} name={'arrow-back'} />
+            </Button>
+          </View>
+        </SafeAreaView>
+      }
+
     </>
   );
 });
